@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYERHALI - Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo">
+                    <div class="logo-image">
+                        <!-- Logo HYERHALI -->
+                        <div class="logo-text">
+                            <span class="logo-main">INVER.MALI</span>
+                            <span class="logo-subtitle">LA FUERZA DE TU MOTOR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">dashboard</i>
+                    <span>Panel Principal</span>
+                </a>
+                <a href="#" class="menu-item active">
+                    <i class="material-icons menu-icon">inventory_2</i>
+                    <span>Inventario</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">add_shopping_cart</i>
+                    <span>Entradas</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">remove_shopping_cart</i>
+                    <span>Salidas</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">swap_horiz</i>
+                    <span>Transferencias</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">assessment</i>
+                    <span>Reportes</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">warning</i>
+                    <span>Alertas de Stock</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">history</i>
+                    <span>Historial</span>
+                </a>
+            </div>
+
+            <hr class="divider">
+
+            <div class="menu-section bottom-section">
+                <p class="section-title">Sistema de Nómina</p>
+                <p class="section-subtitle">Gestión de recursos humanos</p>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">people</i>
+                    <span>Empleados</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="material-icons menu-icon">payments</i>
+                    <span>Nómina Semanal</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 class="page-title">Gestión de Inventario</h1>
+                <nav class="tabs">
+                    <a href="#" class="tab active">Todos los Productos</a>
+                    <a href="#" class="tab">Productos Terminados</a>
+                    <a href="#" class="tab">Servicios</a>
+                    <a href="#" class="tab">Combos</a>
+                </nav>
+            </header>
+
+            <div class="action-bar">
+                <div class="search-box">
+                    <i class="material-icons">search</i>
+                    <input type="text" placeholder="Buscar repuestos, servicios..." id="searchInput">
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="addProductBtn">
+                        <i class="material-icons">add</i>
+                        <span>Nuevo Producto</span>
+                    </button>
+                    <button class="btn btn-secondary" id="quickEntryBtn">
+                        <i class="material-icons">input</i>
+                        <span>Entrada Rápida</span>
+                    </button>
+                    <button class="icon-btn" id="darkModeToggle">
+                        <i class="material-icons">dark_mode</i>
+                    </button>
+                    <button class="icon-btn" id="notificationsBtn">
+                        <i class="material-icons">notifications</i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="icon-btn" id="profileBtn">
+                        <i class="material-icons">person</i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estadísticas Rápidas -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon primary">
+                        <i class="material-icons">inventory_2</i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>215</h3>
+                        <p>Productos Totales</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="material-icons">warning</i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Stock Bajo</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="material-icons">trending_up</i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>45</h3>
+                        <p>Movimientos Hoy</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon info">
+                        <i class="material-icons">attach_money</i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>$12,450</h3>
+                        <p>Valor Inventario</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-header">
+                <h2 class="section-title">Repuestos de Automóviles</h2>
+                <div class="filter-options">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="all">Todas las categorías</option>
+                        <option value="motor">Motor</option>
+                        <option value="frenos">Sistema de Frenos</option>
+                        <option value="suspension">Suspensión</option>
+                        <option value="electrico">Sistema Eléctrico</option>
+                        <option value="transmision">Transmisión</option>
+                        <option value="carroceria">Carrocería</option>
+                    </select>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="name">Ordenar por nombre</option>
+                        <option value="stock">Ordenar por stock</option>
+                        <option value="price">Ordenar por precio</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            </div>
+
+            <!-- Modal para agregar/editar producto -->
+            <div class="modal" id="productModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="modalTitle">Agregar Nuevo Repuesto</h3>
+                        <button class="icon-btn close-modal" id="closeModal">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <form class="modal-form" id="productForm">
+                        <div class="form-group">
+                            <label for="productName">Nombre del Repuesto *</label>
+                            <input type="text" id="productName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Descripción</label>
+                            <textarea id="productDescription" rows="2"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productCategory">Categoría *</label>
+                                <select id="productCategory" required>
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="motor">Motor</option>
+                                    <option value="frenos">Sistema de Frenos</option>
+                                    <option value="suspension">Suspensión</option>
+                                    <option value="electrico">Sistema Eléctrico</option>
+                                    <option value="transmision">Transmisión</option>
+                                    <option value="carroceria">Carrocería</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="productType">Tipo de Producto *</label>
+                                <select id="productType" required>
+                                    <option value="">Seleccionar tipo</option>
+                                    <option value="terminado">Producto Terminado</option>
+                                    <option value="servicio">Servicio</option>
+                                    <option value="combo">Combo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productCost">Costo *</label>
+                                <input type="number" id="productCost" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="productPrice">Precio de Venta *</label>
+                                <input type="number" id="productPrice" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productStock">Stock Actual *</label>
+                                <input type="number" id="productStock" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="productMinStock">Stock Mínimo *</label>
+                                <input type="number" id="productMinStock" required value="5">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar Repuesto</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal para entrada rápida -->
+            <div class="modal" id="entryModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Entrada Rápida de Inventario</h3>
+                        <button class="icon-btn close-modal" id="closeEntryModal">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <form class="modal-form" id="entryForm">
+                        <div class="form-group">
+                            <label for="entryProduct">Seleccionar Producto *</label>
+                            <select id="entryProduct" required>
+                                <option value="">Buscar producto...</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="entryQuantity">Cantidad *</label>
+                                <input type="number" id="entryQuantity" required min="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="entryCost">Costo Unitario *</label>
+                                <input type="number" id="entryCost" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="entryNotes">Notas</label>
+                            <textarea id="entryNotes" rows="2" placeholder="Proveedor, número de factura, etc."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelEntryBtn">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Registrar Entrada</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
