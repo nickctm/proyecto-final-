@@ -1,11 +1,11 @@
 :root {
     /* Nueva Paleta de Colores Maika Romaní */
     --color-primary: #4b1f47;        /* Lila suave principal */
-    --color-primary-light: #3d2b39;  /* Rosa oscuro */
+    --color-primary-light: #5d4b5f;  /* Rosa oscuro */
     --color-secondary: #F8F6F8;      /* Blanco con tono lila muy suave */
     --color-white: #FFFFFF;
-    --color-text-dark: #2D2D2D;      /* Texto oscuro elegante */
-    --color-text-medium: #5A5A5A;    /* Texto medio */
+    --color-text-dark: #2d2d2d;      /* Texto oscuro elegante */
+    --color-text-medium: #5a5a5a;    /* Texto medio */
     --color-text-light: #888888;     /* Texto claro */
     --color-accent: #34694a;         /* Rojo fucsia - Acento principal */
     --color-accent-light: #F8E8ED;   /* Rosa muy claro para fondos */
@@ -18,7 +18,7 @@
     /* Colores adicionales de la paleta */
     --color-accent-secondary: #B46B7F; /* Rosa oscuro secundario */
     --color-tertiary: #2d634a;       /* Rosa neón para detalles */
-    --color-dark: #3A3A3A;           /* Gris oscuro */
+    --color-dark: #3a3a3a;           /* Gris oscuro */
     --color-medium: #A88B9C;         /* Lila medio */
     --color-light: #F0EBF0;          /* Lila muy claro */
     
