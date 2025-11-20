@@ -6,6 +6,7 @@
     <title>INVER.MALI - Sistema de Gestión</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,7 +15,6 @@
                 <div class="logo">
                     <div class="logo-image">
                         <!-- Logo INVER.MALI -->
-                        <img src="img/" alt="INVER.MALI - LA FUERZA DE TU MOTOR" class="logo-img">
                         <div class="logo-text">
                             <span class="logo-main">INVER.MALI</span>
                             <span class="logo-subtitle">LA FUERZA DE TU MOTOR</span>
@@ -24,11 +24,11 @@
             </div>
 
             <div class="menu-section">
-                <a href="#" class="menu-item">
+                <a href="index.html" class="menu-item active">
                     <i class="material-icons menu-icon">dashboard</i>
                     <span>Panel Principal</span>
                 </a>
-                <a href="#" class="menu-item active">
+                <a href="productos.html" class="menu-item">
                     <i class="material-icons menu-icon">inventory_2</i>
                     <span>Productos</span>
                 </a>
@@ -76,29 +76,8 @@
 
         <main class="main-content">
             <header class="top-bar">
-                <h1 class="page-title">Gestión de Inventario</h1>
-                <nav class="tabs">
-                    <a href="#" class="tab active">Todos los Productos</a>
-                    <a href="#" class="tab">Productos Terminados</a>
-                    <a href="#" class="tab">Servicios</a>
-                    <a href="#" class="tab">Combos</a>
-                </nav>
-            </header>
-
-            <div class="action-bar">
-                <div class="search-box">
-                    <i class="material-icons">search</i>
-                    <input type="text" placeholder="Buscar repuestos, servicios..." id="searchInput">
-                </div>
+                <h1 class="page-title">Panel Principal</h1>
                 <div class="action-buttons">
-                    <button class="btn btn-primary" id="addProductBtn">
-                        <i class="material-icons">add</i>
-                        <span>Nuevo Producto</span>
-                    </button>
-                    <button class="btn btn-secondary" id="quickEntryBtn">
-                        <i class="material-icons">input</i>
-                        <span>Entrada Rápida</span>
-                    </button>
                     <button class="icon-btn" id="darkModeToggle">
                         <i class="material-icons">dark_mode</i>
                     </button>
@@ -110,17 +89,28 @@
                         <i class="material-icons">person</i>
                     </button>
                 </div>
-            </div>
+            </header>
 
             <!-- Estadísticas Rápidas -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon primary">
+                        <i class="material-icons">attach_money</i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>$67,000</h3>
+                        <p>Ventas del Mes</p>
+                        <span class="stat-trend positive">+11.25% vs mes anterior</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success">
                         <i class="material-icons">inventory_2</i>
                     </div>
                     <div class="stat-info">
-                        <h3>215</h3>
-                        <p>Productos Totales</p>
+                        <h3>1,247</h3>
+                        <p>Productos en Stock</p>
+                        <span class="stat-detail">358 productos activos</span>
                     </div>
                 </div>
                 <div class="stat-card">
@@ -128,163 +118,97 @@
                         <i class="material-icons">warning</i>
                     </div>
                     <div class="stat-info">
-                        <h3>12</h3>
-                        <p>Stock Bajo</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon success">
-                        <i class="material-icons">trending_up</i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>45</h3>
-                        <p>Movimientos Hoy</p>
+                        <h3>23</h3>
+                        <p>Alertas de Stock Bajo</p>
+                        <span class="stat-detail">Requieren reabastecimiento</span>
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon info">
-                        <i class="material-icons">attach_money</i>
+                        <i class="material-icons">people</i>
                     </div>
                     <div class="stat-info">
-                        <h3>$12,450</h3>
-                        <p>Valor Inventario</p>
+                        <h3>18</h3>
+                        <p>Empleados Activos</p>
+                        <span class="stat-detail">En nómina actual</span>
                     </div>
                 </div>
             </div>
 
-            <div class="products-header">
-                <h2 class="section-title">Repuestos de Automóviles</h2>
-                <div class="filter-options">
-                    <select class="filter-select" id="categoryFilter">
-                        <option value="all">Todas las categorías</option>
-                        <option value="motor">Motor</option>
-                        <option value="frenos">Sistema de Frenos</option>
-                        <option value="suspension">Suspensión</option>
-                        <option value="electrico">Sistema Eléctrico</option>
-                        <option value="transmision">Transmisión</option>
-                        <option value="carroceria">Carrocería</option>
-                    </select>
-                    <select class="filter-select" id="sortFilter">
-                        <option value="name">Ordenar por nombre</option>
-                        <option value="stock">Ordenar por stock</option>
-                        <option value="price">Ordenar por precio</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="products-grid" id="productsGrid">
-                <!-- Los productos se cargarán dinámicamente con JavaScript -->
-            </div>
-
-            <!-- Modal para agregar/editar producto -->
-            <div class="modal" id="productModal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 id="modalTitle">Agregar Nuevo Repuesto</h3>
-                        <button class="icon-btn close-modal" id="closeModal">
-                            <i class="material-icons">close</i>
-                        </button>
+            <div class="dashboard-content">
+                <div class="chart-section">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Ventas y Compras (Últimos 6 Meses)</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="salesChart"></canvas>
+                        </div>
                     </div>
-                    <form class="modal-form" id="productForm">
-                        <div class="form-group">
-                            <label for="productName">Nombre del Repuesto *</label>
-                            <input type="text" id="productName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="productDescription">Descripción</label>
-                            <textarea id="productDescription" rows="2"></textarea>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="productCategory">Categoría *</label>
-                                <select id="productCategory" required>
-                                    <option value="">Seleccionar categoría</option>
-                                    <option value="motor">Motor</option>
-                                    <option value="frenos">Sistema de Frenos</option>
-                                    <option value="suspension">Suspensión</option>
-                                    <option value="electrico">Sistema Eléctrico</option>
-                                    <option value="transmision">Transmisión</option>
-                                    <option value="carroceria">Carrocería</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="productType">Tipo de Producto *</label>
-                                <select id="productType" required>
-                                    <option value="">Seleccionar tipo</option>
-                                    <option value="terminado">Producto Terminado</option>
-                                    <option value="servicio">Servicio</option>
-                                    <option value="combo">Combo</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="productCost">Costo *</label>
-                                <input type="number" id="productCost" step="0.01" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="productPrice">Precio de Venta *</label>
-                                <input type="number" id="productPrice" step="0.01" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="productStock">Stock Actual *</label>
-                                <input type="number" id="productStock" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="productMinStock">Stock Mínimo *</label>
-                                <input type="number" id="productMinStock" required value="5">
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Guardar Repuesto</button>
-                        </div>
-                    </form>
                 </div>
-            </div>
 
-            <!-- Modal para entrada rápida -->
-            <div class="modal" id="entryModal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Entrada Rápida de Inventario</h3>
-                        <button class="icon-btn close-modal" id="closeEntryModal">
-                            <i class="material-icons">close</i>
-                        </button>
+                <div class="side-panels">
+                    <div class="distribution-card">
+                        <div class="chart-header">
+                            <h3>Distribución por Categoría</h3>
+                        </div>
+                        <div class="distribution-container">
+                            <canvas id="distributionChart"></canvas>
+                        </div>
                     </div>
-                    <form class="modal-form" id="entryForm">
-                        <div class="form-group">
-                            <label for="entryProduct">Seleccionar Producto *</label>
-                            <select id="entryProduct" required>
-                                <option value="">Buscar producto...</option>
-                            </select>
+
+                    <div class="activity-card">
+                        <div class="chart-header">
+                            <h3>Actividad Reciente</h3>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="entryQuantity">Cantidad *</label>
-                                <input type="number" id="entryQuantity" required min="1">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="material-icons">inventory</i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Nueva entrada de inventario</p>
+                                    <p class="activity-desc">Filtro de series 400 validados</p>
+                                </div>
+                                <span class="activity-time">Hace 2 horas</span>
                             </div>
-                            <div class="form-group">
-                                <label for="entryCost">Costo Unitario *</label>
-                                <input type="number" id="entryCost" step="0.01" required>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="material-icons">shopping_cart</i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Venta registrada</p>
+                                    <p class="activity-desc">Cliente: Taller Martínez</p>
+                                </div>
+                                <span class="activity-time">Hace 15 min</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="material-icons">warning</i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Alerta de stock bajo</p>
+                                    <p class="activity-desc">Pastillas de freno delanteras</p>
+                                </div>
+                                <span class="activity-time">Hace 1 día</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="material-icons">person_add</i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-title">Nuevo empleado registrado</p>
+                                    <p class="activity-desc">Carlos Rodríguez - Mecánico</p>
+                                </div>
+                                <span class="activity-time">Hace 2 días</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="entryNotes">Notas</label>
-                            <textarea id="entryNotes" rows="2" placeholder="Proveedor, número de factura, etc."></textarea>
-                        </div>
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" id="cancelEntryBtn">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Registrar Entrada</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="javascript/script.js"></script>
 </body>
 </html>
