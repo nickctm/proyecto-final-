@@ -3,212 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INVER.MALI - Sistema de Gestión</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Sistema de Inventario Vehicular</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">  
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <div class="logo-area">
-                <div class="logo">
-                    <div class="logo-image">
-                        <!-- Logo INVER.MALI -->
-                        <div class="logo-text">
-                            <span class="logo-main">INVER.MALI</span>
-                            <span class="logo-subtitle">LA FUERZA DE TU MOTOR</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Panel Lateral del Menú -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span class="logo-text">AutoParts</span>
             </div>
-
-            <div class="menu-section">
-                <a href="index.html" class="menu-item active">
-                    <i class="material-icons menu-icon">dashboard</i>
-                    <span>Panel Principal</span>
-                </a>
-                <a href="productos.html" class="menu-item">
-                    <i class="material-icons menu-icon">inventory_2</i>
-                    <span>Productos</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">add_shopping_cart</i>
-                    <span>Entradas</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">remove_shopping_cart</i>
-                    <span>Registros</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">swap_horiz</i>
-                    <span>Método de pagos</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">assessment</i>
-                    <span>Reportes</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">warning</i>
-                    <span>Alertas de Stock</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">history</i>
-                    <span>Historial</span>
-                </a>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title">Principal</div>
+            <ul class="menu">
+                <li class="menu-item active">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Panel Principal</span>
+                </li>
+                <li class="menu-item">
+                    <i class="fas fa-box"></i>
+                    <span class="menu-text">Inventario</span>
+                    <span class="menu-badge">5</span>
+                </li>
+                <li class="menu-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="menu-text">Ventas</span>
+                </li>
+                <li class="menu-item">
+                    <i class="fas fa-truck"></i>
+                    <span class="menu-text">Compras</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title">Análisis</div>
+            <ul class="menu">
+                <li class="menu-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="menu-text">Reportes</span>
+                </li>
+                <li class="menu-item">
+                    <i class="fas fa-bell"></i>
+                    <span class="menu-text">Alertas</span>
+                    <span class="menu-badge">3</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title">Administración</div>
+            <ul class="menu">
+                <li class="menu-item">
+                    <i class="fas fa-users"></i>
+                    <span class="menu-text">Empleados</span>
+                </li>
+                <li class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Configuración</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="user-profile">
+            <div class="user-avatar-sidebar">A</div>
+            <div class="user-details-sidebar">
+                <div class="user-name-sidebar">Usuario</div>
+                <div class="user-role-sidebar">Sesión Activa</div>
             </div>
-
-            <hr class="divider">
-
-            <div class="menu-section bottom-section">
-                <p class="section-title">Sistema de Nómina</p>
-                <p class="section-subtitle">Gestión de recursos humanos</p>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">people</i>
-                    <span>Empleados</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="material-icons menu-icon">payments</i>
-                    <span>Nómina Semanal</span>
-                </a>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <header class="top-bar">
-                <h1 class="page-title">Panel Principal</h1>
-                <div class="action-buttons">
-                    <button class="icon-btn" id="darkModeToggle">
-                        <i class="material-icons">dark_mode</i>
-                    </button>
-                    <button class="icon-btn" id="notificationsBtn">
-                        <i class="material-icons">notifications</i>
-                        <span class="notification-badge">3</span>
-                    </button>
-                    <button class="icon-btn" id="profileBtn">
-                        <i class="material-icons">person</i>
-                    </button>
-                </div>
-            </header>
-
-            <!-- Estadísticas Rápidas -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon primary">
-                        <i class="material-icons">attach_money</i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>$67,000</h3>
-                        <p>Ventas del Mes</p>
-                        <span class="stat-trend positive">+11.25% vs mes anterior</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon success">
-                        <i class="material-icons">inventory_2</i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>1,247</h3>
-                        <p>Productos en Stock</p>
-                        <span class="stat-detail">358 productos activos</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon warning">
-                        <i class="material-icons">warning</i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>23</h3>
-                        <p>Alertas de Stock Bajo</p>
-                        <span class="stat-detail">Requieren reabastecimiento</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon info">
-                        <i class="material-icons">people</i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>18</h3>
-                        <p>Empleados Activos</p>
-                        <span class="stat-detail">En nómina actual</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dashboard-content">
-                <div class="chart-section">
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3>Ventas y Compras (Últimos 6 Meses)</h3>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="salesChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="side-panels">
-                    <div class="distribution-card">
-                        <div class="chart-header">
-                            <h3>Distribución por Categoría</h3>
-                        </div>
-                        <div class="distribution-container">
-                            <canvas id="distributionChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <div class="chart-header">
-                            <h3>Actividad Reciente</h3>
-                        </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="material-icons">inventory</i>
-                                </div>
-                                <div class="activity-content">
-                                    <p class="activity-title">Nueva entrada de inventario</p>
-                                    <p class="activity-desc">Filtro de series 400 validados</p>
-                                </div>
-                                <span class="activity-time">Hace 2 horas</span>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="material-icons">shopping_cart</i>
-                                </div>
-                                <div class="activity-content">
-                                    <p class="activity-title">Venta registrada</p>
-                                    <p class="activity-desc">Cliente: Taller Martínez</p>
-                                </div>
-                                <span class="activity-time">Hace 15 min</span>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="material-icons">warning</i>
-                                </div>
-                                <div class="activity-content">
-                                    <p class="activity-title">Alerta de stock bajo</p>
-                                    <p class="activity-desc">Pastillas de freno delanteras</p>
-                                </div>
-                                <span class="activity-time">Hace 1 día</span>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="material-icons">person_add</i>
-                                </div>
-                                <div class="activity-content">
-                                    <p class="activity-title">Nuevo empleado registrado</p>
-                                    <p class="activity-desc">Carlos Rodríguez - Mecánico</p>
-                                </div>
-                                <span class="activity-time">Hace 2 días</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+        </div>
     </div>
 
-    <script src="javascript/script.js"></script>
+    <!-- Contenido Principal -->
+    <div class="main-content">
+        <div class="header">
+            <div class="page-title">
+                <h1>Sistema de Inventario Vehicular</h1>
+                <h2>AutoParts Inventory</h2>
+            </div>
+            <div class="admin-notification">
+                <div class="admin-badge">
+                    <i class="fas fa-user-shield"></i>
+                    Sistema del Administrador
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar productos, empleados, transacciones...">
+        </div>
+
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-title">Panel Principal</div>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-value">$67,000</div>
+                        <div class="stat-label">Ventas del Mes</div>
+                        <div class="stat-change positive">P = 12.5% vs mes anterior</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-label">Productos en Stock</div>
+                        <div class="stat-change">358 productos activos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    Alertas de Stock Bajo
+                    <a href="#" class="view-all">Ver todo</a>
+                </div>
+                <ul class="alert-list">
+                    <li class="alert-item">
+                        <i class="fas fa-exclamation-triangle alert-icon"></i>
+                        <span>Registrar trabajos comienzo</span>
+                    </li>
+                    <li class="alert-item">
+                        <i class="fas fa-exclamation-triangle alert-icon"></i>
+                        <span>Empéndolo Activos</span>
+                    </li>
+                    <li class="alert-item">
+                        <i class="fas fa-exclamation-triangle alert-icon"></i>
+                        <span>En dónima actual</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card card-large">
+                <div class="card-title">
+                    Ventas y Compras (Últimos 6 Meses)
+                    <a href="#" class="view-all">Ver reporte</a>
+                </div>
+                <div class="chart-container">
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="additional-info">
+                    <p>Activas de Stock</p>
+                    <p>Historia Empieados</p>
+                    <p>Númica</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Distribución por Categoría</div>
+                <div class="chart-container">
+                    <canvas id="categoryChart"></canvas>
+                </div>
+                <ul class="category-list">
+                    <li class="category-item">
+                        <span class="category-name">Repuestos Motor</span>
+                        <span class="category-percentage">35%</span>
+                    </li>
+                    <li class="category-item">
+                        <span class="category-name">Llantas</span>
+                        <span class="category-percentage">25%</span>
+                    </li>
+                    <li class="category-item">
+                        <span class="category-name">Accesorios</span>
+                        <span class="category-percentage">19%</span>
+                    </li>
+                    <li class="category-item">
+                        <span class="category-name">Accesorios/Unicamientos</span>
+                        <span class="category-percentage">20%</span>
+                    </li>
+                    <li class="category-item">
+                        <span class="category-name">Otros</span>
+                        <span class="category-percentage">3%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    Actividad Reciente
+                    <a href="#" class="view-all">Ver todo</a>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <i class="fas fa-user-plus" style="color: var(--success-color); margin-right: 10px;"></i>
+                        <span>Nombre para ahí usar</span>
+                    </li>
+                    <li class="activity-item">
+                        <i class="fas fa-box" style="color: var(--secondary-color); margin-right: 10px;"></i>
+                        <span>Nueva entrada de inventario</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Usuario Actual</div>
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div class="user-details">
+                        <div class="user-name">Admin</div>
+                        <div class="user-role">Administrador del Sistema</div>
+                    </div>
+                </div>
+                <div class="current-time">
+                    <div>Hace 15 min</div>
+                    <div>10:36 a.m.</div>
+                    <div>21/11/2025</div>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item-small active">Acceso</div>
+                    <div class="menu-item-small">Configuración</div>
+                    <div class="menu-item-small">Perfil</div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Uso de almacenamiento</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
