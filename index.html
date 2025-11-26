@@ -6,7 +6,7 @@
     <title>Sistema de Inventario Vehicular</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="styles.css">  
+    <link rel="stylesheet" href="/css/styles.css">  
 </head>
 <body>
     <!-- Panel Lateral del Menú -->
@@ -69,13 +69,6 @@
                 </li>
             </ul>
         </div>
-        
-        <div class="user-profile">
-            <div class="user-avatar-sidebar">A</div>
-            <div class="user-details-sidebar">
-                <div class="user-name-sidebar">Usuario</div>
-                <div class="user-role-sidebar">Sesión Activa</div>
-            </div>
         </div>
     </div>
 
@@ -86,23 +79,50 @@
                 <h1>Sistema de Inventario Vehicular</h1>
                 <h2>AutoParts Inventory</h2>
             </div>
-            <div class="admin-notification">
-                <div class="admin-badge">
-                    <i class="fas fa-user-shield"></i>
-                    Sistema del Administrador
-                </div>
-                <div class="header-controls">
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="search-container">
+             <div class="search-container">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Buscar productos, empleados, transacciones...">
         </div>
+        <!-- Después del search-container en el header -->
+<div class="header-actions">
+    <button class="btn-notification">
+        <i class="fas fa-bell"></i>
+        <span class="notification-badge">3</span>
+    </button>
+</div>
+
+<!-- Modal para notificaciones (agregar antes del script) -->
+<div id="notificationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Notificaciones</h3>
+            <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="notification-item unread">
+                <i class="fas fa-exclamation-circle"></i>
+                <div class="notification-text">
+                    <strong>Stock bajo</strong>
+                    <p>Los repuestos de motor están por debajo del mínimo</p>
+                    <span class="notification-time">Hace 5 min</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                <div class="admin-notification">
+                    <div class="admin-badge">
+                        <i class="fas fa-user-shield"></i>
+                        Sistema del Administrador
+                    </div>
+                    <div class="header-controls">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
 
         <div class="dashboard">
             <div class="card">
@@ -235,6 +255,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
